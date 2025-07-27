@@ -52,5 +52,5 @@
     "tailwindcss": "^3.4.17"
   },
   "proxy": "http://localhost:8000",
-  "homepage": "https://codehard25.github.io/CStickAI"
+  "homepage": "https://codehard25.github.io/CStickAI/"
 }
