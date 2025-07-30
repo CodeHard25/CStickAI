@@ -1,15 +1,14 @@
 import React, { useState, useRef } from 'react';
-import { Upload, TrendingUp, TrendingDown, Minus, Camera, BarChart3, AlertCircle, CheckCircle, Loader2, X } from 'lucide-react';
+import { Upload, TrendingUp, TrendingDown, Camera, BarChart3, AlertCircle, CheckCircle, Loader2, X } from 'lucide-react';
 
 // Type definitions
 interface ClassConfidences {
   buy: number;
   sell: number;
-  hold: number;
 }
 
 interface Prediction {
-  action: 'BUY' | 'SELL' | 'HOLD';
+  action: 'BUY' | 'SELL';
   confidence: number;
   strength: string;
   class_confidences: ClassConfidences;
@@ -38,7 +37,7 @@ const CandlestickPredictionApp: React.FC = () => {
   const [predictionHistory, setPredictionHistory] = useState<PredictionHistoryItem[]>([]);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
-  const API_BASE_URL = 'http://localhost:8000';
+  const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
   const handleFileSelect = (file: File | null): void => {
     if (!file) return;
@@ -160,8 +159,6 @@ const CandlestickPredictionApp: React.FC = () => {
         return <TrendingUp className="w-6 h-6 text-green-500" />;
       case 'SELL':
         return <TrendingDown className="w-6 h-6 text-red-500" />;
-      case 'HOLD':
-        return <Minus className="w-6 h-6 text-yellow-500" />;
       default:
         return <BarChart3 className="w-6 h-6 text-gray-500" />;
     }
@@ -173,8 +170,6 @@ const CandlestickPredictionApp: React.FC = () => {
         return 'text-green-600 bg-green-50 border-green-200';
       case 'SELL':
         return 'text-red-600 bg-red-50 border-red-200';
-      case 'HOLD':
-        return 'text-yellow-600 bg-yellow-50 border-yellow-200';
       default:
         return 'text-gray-600 bg-gray-50 border-gray-200';
     }
@@ -385,25 +380,6 @@ const CandlestickPredictionApp: React.FC = () => {
                           </div>
                           <span className="text-sm text-gray-600 w-12 text-right">
                             {prediction.class_confidences?.sell || 0}%
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Hold */}
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-2">
-                          <Minus className="w-4 h-4 text-yellow-500" />
-                          <span className="text-sm font-medium">Hold</span>
-                        </div>
-                        <div className="flex items-center space-x-2">
-                          <div className="w-20 bg-gray-200 rounded-full h-2">
-                            <div
-                              className="bg-yellow-500 h-2 rounded-full transition-all duration-500"
-                              style={{ width: `${prediction.class_confidences?.hold || 0}%` }}
-                            ></div>
-                          </div>
-                          <span className="text-sm text-gray-600 w-12 text-right">
-                            {prediction.class_confidences?.hold || 0}%
                           </span>
                         </div>
                       </div>
