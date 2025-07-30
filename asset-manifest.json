@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/CStickAI/static/css/main.1a363fe5.css",
-    "main.js": "/CStickAI/static/js/main.3e60a6b0.js",
+    "main.css": "/CStickAI/static/css/main.f977a903.css",
+    "main.js": "/CStickAI/static/js/main.968b340f.js",
     "index.html": "/CStickAI/index.html",
-    "main.1a363fe5.css.map": "/CStickAI/static/css/main.1a363fe5.css.map",
-    "main.3e60a6b0.js.map": "/CStickAI/static/js/main.3e60a6b0.js.map"
+    "main.f977a903.css.map": "/CStickAI/static/css/main.f977a903.css.map",
+    "main.968b340f.js.map": "/CStickAI/static/js/main.968b340f.js.map"
   },
   "entrypoints": [
-    "static/css/main.1a363fe5.css",
-    "static/js/main.3e60a6b0.js"
+    "static/css/main.f977a903.css",
+    "static/js/main.968b340f.js"
   ]
 }
