@@ -51,6 +51,6 @@
     "postcss": "^8.5.6",
     "tailwindcss": "^3.4.17"
   },
-  "proxy": "http://localhost:8000",
+  "proxy": "https://candlestick-ai-backend.onrender.com/",
   "homepage": "https://codehard25.github.io/CStickAI/"
 }
