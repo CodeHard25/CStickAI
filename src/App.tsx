@@ -39,6 +39,9 @@ const CandlestickPredictionApp: React.FC = () => {
 
   const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
 
+  // Debug: Log the API URL being used
+  console.log('🔗 API Base URL:', API_BASE_URL);
+
   const handleFileSelect = (file: File | null): void => {
     if (!file) return;
 
